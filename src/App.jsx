@@ -1854,12 +1854,7 @@ const categories = [
     name: "Cookware",
     icon: "🍳",
     description: "Steel, aluminium, non-stick & cast iron",
-    subcategories: [
-      "Steel",
-      "Aluminium",
-      "Non-Stick",
-      "Cast Iron",
-    ],
+    subcategories: ["Steel", "Aluminium", "Non-Stick", "Cast Iron"],
   },
   {
     name: "Cookers & Stoves",
@@ -1876,38 +1871,25 @@ const categories = [
     name: "Electric Appliances",
     icon: "⚡",
     description: "Kitchen & electrical appliances",
-    subcategories: [
-      "Electric Kitchen",
-      "Electric Equipment",
-    ],
+    subcategories: ["Electric Kitchen", "Electric Equipment"],
   },
   {
     name: "Kitchen Accessories",
     icon: "🥄",
     description: "Accessories, racks & kitchen tools",
-    subcategories: [
-      "Steel Accessories",
-      "Kitchen Racks",
-      "Kitchen Tools",
-    ],
+    subcategories: ["Steel Accessories", "Kitchen Racks", "Kitchen Tools"],
   },
   {
     name: "Storage & Serving",
     icon: "🍱",
     description: "Casaroles, flasks & bottles",
-    subcategories: [
-      "Casaroles",
-      "Flasks & Water Bottles",
-    ],
+    subcategories: ["Casaroles", "Flasks & Water Bottles"],
   },
   {
     name: "Glassware & Crockery",
     icon: "🥛",
     description: "Glassware, dinner sets & cups",
-    subcategories: [
-      "Glassware",
-      "Crockery",
-    ],
+    subcategories: ["Glassware", "Crockery"],
   },
   {
     name: "Dining & Serving",
@@ -1949,20 +1931,12 @@ function App() {
         product.category.toLowerCase().includes(search) ||
         product.subcategory.toLowerCase().includes(search);
 
-      return (
-        matchesCategory &&
-        matchesSubcategory &&
-        matchesSearch
-      );
+      return matchesCategory && matchesSubcategory && matchesSearch;
     });
-  }, [
-    selectedCategory,
-    selectedSubcategory,
-    searchTerm,
-  ]);
+  }, [selectedCategory, selectedSubcategory, searchTerm]);
 
   /* =======================================================
-     SELECT CATEGORY
+     CATEGORY CLICK
      ======================================================= */
 
   const handleCategoryClick = (categoryName) => {
@@ -1976,7 +1950,7 @@ function App() {
   };
 
   /* =======================================================
-     SELECT SUBCATEGORY
+     SUBCATEGORY CLICK
      ======================================================= */
 
   const handleSubcategoryClick = (subcategory) => {
@@ -1998,7 +1972,7 @@ function App() {
   };
 
   /* =======================================================
-     GET ACTIVE SUBCATEGORIES
+     ACTIVE CATEGORY
      ======================================================= */
 
   const activeCategory = categories.find(
@@ -2012,9 +1986,7 @@ function App() {
   return (
     <div className="app">
 
-      {/* ===================================================
-          HEADER
-          =================================================== */}
+      {/* HEADER */}
 
       <header className="header">
         <div className="header-content">
@@ -2029,22 +2001,16 @@ function App() {
               type="text"
               placeholder="Search products, codes..."
               value={searchTerm}
-              onChange={(event) =>
-                setSearchTerm(event.target.value)
-              }
+              onChange={(event) => setSearchTerm(event.target.value)}
             />
 
-            <span className="search-icon">
-              🔍
-            </span>
+            <span className="search-icon">🔍</span>
           </div>
 
         </div>
       </header>
 
-      {/* ===================================================
-          MAIN
-          =================================================== */}
+      {/* MAIN */}
 
       <main className="main-container">
 
@@ -2054,6 +2020,7 @@ function App() {
 
           <div>
             <h2>Our Collection</h2>
+
             <p>
               Explore our range of quality kitchenware
               and household products.
@@ -2073,9 +2040,7 @@ function App() {
 
         </div>
 
-        {/* =================================================
-            CATEGORY CARDS
-            ================================================= */}
+        {/* CATEGORY CARDS */}
 
         <section className="category-grid">
 
@@ -2083,13 +2048,9 @@ function App() {
             <div
               key={category.name}
               className={`category-card ${
-                selectedCategory === category.name
-                  ? "active"
-                  : ""
+                selectedCategory === category.name ? "active" : ""
               }`}
-              onClick={() =>
-                handleCategoryClick(category.name)
-              }
+              onClick={() => handleCategoryClick(category.name)}
             >
 
               <div className="category-icon">
@@ -2105,9 +2066,7 @@ function App() {
 
         </section>
 
-        {/* =================================================
-            ACTIVE FILTER
-            ================================================= */}
+        {/* ACTIVE FILTER */}
 
         {(selectedCategory !== "All" ||
           selectedSubcategory !== "All" ||
@@ -2121,18 +2080,14 @@ function App() {
               </span>
 
               {selectedCategory !== "All" && (
-                <>
-                  <span className="filter-value">
-                    {selectedCategory}
-                  </span>
-                </>
+                <span className="filter-value">
+                  {selectedCategory}
+                </span>
               )}
 
               {selectedCategory !== "All" &&
                 selectedSubcategory !== "All" && (
-                  <span className="filter-arrow">
-                    →
-                  </span>
+                  <span className="filter-arrow">→</span>
                 )}
 
               {selectedSubcategory !== "All" && (
@@ -2143,9 +2098,7 @@ function App() {
 
               {searchTerm !== "" && (
                 <>
-                  <span className="filter-arrow">
-                    →
-                  </span>
+                  <span className="filter-arrow">→</span>
 
                   <span className="filter-value">
                     Search: "{searchTerm}"
@@ -2158,9 +2111,7 @@ function App() {
           </section>
         )}
 
-        {/* =================================================
-            SUBCATEGORIES
-            ================================================= */}
+        {/* SUBCATEGORIES */}
 
         {selectedCategory !== "All" &&
           activeCategory &&
@@ -2175,45 +2126,35 @@ function App() {
 
                 <button
                   className={`subcategory-button ${
-                    selectedSubcategory === "All"
-                      ? "active"
-                      : ""
+                    selectedSubcategory === "All" ? "active" : ""
                   }`}
-                  onClick={() =>
-                    setSelectedSubcategory("All")
-                  }
+                  onClick={() => setSelectedSubcategory("All")}
                 >
                   All
                 </button>
 
-                {activeCategory.subcategories.map(
-                  (subcategory) => (
-                    <button
-                      key={subcategory}
-                      className={`subcategory-button ${
-                        selectedSubcategory === subcategory
-                          ? "active"
-                          : ""
-                      }`}
-                      onClick={() =>
-                        handleSubcategoryClick(
-                          subcategory
-                        )
-                      }
-                    >
-                      {subcategory}
-                    </button>
-                  )
-                )}
+                {activeCategory.subcategories.map((subcategory) => (
+                  <button
+                    key={subcategory}
+                    className={`subcategory-button ${
+                      selectedSubcategory === subcategory
+                        ? "active"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      handleSubcategoryClick(subcategory)
+                    }
+                  >
+                    {subcategory}
+                  </button>
+                ))}
 
               </div>
 
             </section>
           )}
 
-        {/* =================================================
-            PRODUCTS
-            ================================================= */}
+        {/* PRODUCTS */}
 
         <section className="products-section">
 
@@ -2224,9 +2165,7 @@ function App() {
 
               <p>
                 Showing{" "}
-                <strong>
-                  {filteredProducts.length}
-                </strong>{" "}
+                <strong>{filteredProducts.length}</strong>{" "}
                 products
               </p>
             </div>
@@ -2247,12 +2186,17 @@ function App() {
                   {/* IMAGE PLACEHOLDER */}
 
                   <div className="product-image">
+
                     <div className="image-placeholder">
+
                       <span>📦</span>
+
                       <small>
                         Image coming soon
                       </small>
+
                     </div>
+
                   </div>
 
                   {/* PRODUCT INFORMATION */}
@@ -2263,15 +2207,11 @@ function App() {
                       {product.subcategory}
                     </span>
 
-                    <h3>
-                      {product.name}
-                    </h3>
+                    <h3>{product.name}</h3>
 
                     <p>
                       Item Code:{" "}
-                      <strong>
-                        {product.code}
-                      </strong>
+                      <strong>{product.code}</strong>
                     </p>
 
                   </div>
@@ -2281,15 +2221,16 @@ function App() {
 
             </div>
           ) : (
+
+            /* NO PRODUCTS */
+
             <div className="no-products">
 
               <div className="no-products-icon">
                 🔎
               </div>
 
-              <h3>
-                No products found
-              </h3>
+              <h3>No products found</h3>
 
               <p>
                 Try a different search term
@@ -2310,9 +2251,7 @@ function App() {
 
       </main>
 
-      {/* ===================================================
-          FOOTER
-          =================================================== */}
+      {/* FOOTER */}
 
       <footer className="footer">
         <p>
@@ -2326,9 +2265,7 @@ function App() {
 }
 
 /* =========================================================
-   IMPORTANT:
-   THIS FIXES THE "DOES NOT PROVIDE AN EXPORT NAMED DEFAULT"
-   ERROR FROM main.jsx
+   EXPORT
    ========================================================= */
 
 export default App;
