@@ -73,9 +73,9 @@ function Contact() {
               <span className="contact-info-label">STORE HOURS</span>
 
               <p>
-                Monday – Saturday
+                Monday – Sunday
                 <br />
-                9:00 AM – 7:00 PM
+                9:00 AM – 8:00 PM
               </p>
             </div>
           </div>
