@@ -853,22 +853,26 @@ img {
   font-size: 11px;
 }
 
-
 /* =========================================================
-   CONTACT / STORE LOCATION
-   ========================================================= */
+CONTACT / STORE LOCATION
+GREEN + CREAM + GOLD THEME
+========================================================= */
 
 .contact-section {
   width: 100%;
-
   padding: 100px 5%;
 
-  background: #f7f5ef;
+  background:
+    linear-gradient(
+      135deg,
+      #f8f3e7 0%,
+      #f4eee0 50%,
+      #edf4f0 100%
+    );
 }
 
 .contact-inner {
   width: 100%;
-
   max-width: 1450px;
 
   margin: 0 auto;
@@ -884,19 +888,25 @@ img {
   align-items: stretch;
 }
 
-
 /* =========================================================
-   CONTACT LEFT
-   ========================================================= */
+CONTACT LEFT
+========================================================= */
 
 .contact-content {
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
 
-  padding: 20px 0;
+  padding: 35px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(189, 139, 63, 0.22);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 15px 40px rgba(13, 47, 39, 0.08);
 }
 
 .contact-label {
@@ -904,7 +914,7 @@ img {
 
   margin-bottom: 18px;
 
-  color: #1d4d42;
+  color: var(--accent);
 
   font-size: 11px;
   font-weight: 800;
@@ -917,7 +927,7 @@ img {
 .contact-content h2 {
   margin: 0 0 20px;
 
-  color: #173f36;
+  color: var(--primary-dark);
 
   font-family: "Playfair Display", serif;
 
@@ -940,10 +950,9 @@ img {
   line-height: 1.8;
 }
 
-
 /* =========================================================
-   CONTACT DETAILS
-   ========================================================= */
+CONTACT DETAILS
+========================================================= */
 
 .contact-details {
   display: flex;
@@ -975,7 +984,11 @@ img {
 
   border-radius: 50%;
 
-  background: #e8eee9;
+  background: var(--primary-light);
+
+  color: var(--primary);
+
+  border: 1px solid rgba(189, 139, 63, 0.25);
 
   font-size: 18px;
 }
@@ -989,7 +1002,7 @@ img {
 
   margin-bottom: 6px;
 
-  color: #89928e;
+  color: var(--accent);
 
   font-size: 10px;
   font-weight: 800;
@@ -1000,7 +1013,7 @@ img {
 .contact-item p {
   margin: 0;
 
-  color: #283d37;
+  color: var(--primary-dark);
 
   font-size: 15px;
 
@@ -1008,7 +1021,7 @@ img {
 }
 
 .contact-item a {
-  color: #283d37;
+  color: var(--primary);
 
   text-decoration: none;
 
@@ -1016,13 +1029,12 @@ img {
 }
 
 .contact-item a:hover {
-  color: #1d8065;
+  color: var(--accent);
 }
 
-
 /* =========================================================
-   CONTACT BUTTONS
-   ========================================================= */
+CONTACT BUTTONS
+========================================================= */
 
 .contact-buttons {
   display: flex;
@@ -1062,6 +1074,8 @@ img {
   background: var(--primary);
 
   color: white;
+
+  border: 1px solid var(--primary);
 }
 
 .contact-primary-button:hover {
@@ -1070,30 +1084,31 @@ img {
   transform: translateY(-2px);
 
   box-shadow:
-    0 8px 20px rgba(23, 72, 59, 0.16);
+    0 8px 20px rgba(23, 72, 59, 0.20);
 }
 
 .contact-secondary-button {
-  background: white;
+  background: var(--accent-light);
 
   color: var(--primary);
 
-  border: 1px solid #b8c7c1;
+  border: 1px solid rgba(189, 139, 63, 0.45);
 }
 
 .contact-secondary-button:hover {
-  background: #edf2ef;
+  background: white;
+
+  color: var(--primary-dark);
 
   transform: translateY(-2px);
 
   box-shadow:
-    0 8px 20px rgba(25, 65, 55, 0.10);
+    0 8px 20px rgba(189, 139, 63, 0.12);
 }
 
-
 /* =========================================================
-   GOOGLE MAP - WIDE RIGHT SIDE
-   ========================================================= */
+GOOGLE MAP - WIDE RIGHT SIDE
+========================================================= */
 
 .contact-map {
   position: relative;
@@ -1106,21 +1121,15 @@ img {
 
   overflow: hidden;
 
-  background: white;
+  background: var(--surface);
 
-  border: 1px solid #e1e3df;
+  border: 3px solid rgba(189, 139, 63, 0.45);
 
-  border-radius: 18px;
+  border-radius: 20px;
 
   box-shadow:
-    0 15px 45px rgba(31, 52, 45, 0.10);
+    0 20px 50px rgba(13, 47, 39, 0.14);
 }
-
-
-/*
-   Your current Contact.jsx places the iframe
-   directly inside .contact-map.
-*/
 
 .contact-map iframe {
   display: block;
@@ -1134,8 +1143,9 @@ img {
   border: 0;
 }
 
-
-/* GOOGLE MAP BUTTON */
+/* =========================================================
+GOOGLE MAP BUTTON
+========================================================= */
 
 .map-button {
   position: absolute;
@@ -1153,9 +1163,11 @@ img {
 
   padding: 0 20px;
 
-  background: white;
+  background: var(--primary);
 
-  color: #173f36;
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   border-radius: 7px;
 
@@ -1165,20 +1177,22 @@ img {
   text-decoration: none;
 
   box-shadow:
-    0 5px 20px rgba(0, 0, 0, 0.15);
+    0 5px 20px rgba(13, 47, 39, 0.25);
 
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .map-button:hover {
+  background: var(--primary-dark);
+
   transform: translateY(-2px);
 
   box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.20);
+    0 8px 25px rgba(13, 47, 39, 0.30);
 }
-
 
 /* =========================================================
    FOOTER
